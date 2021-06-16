@@ -42,7 +42,7 @@ export const getStaticProps = async ({params}) => {
 export default function CartDetail({user, selectedUserName}) {
 
     if (!user || !selectedUserName) {
-        return <div className={styles.loader}></div>
+        return <div className={styles.loader}/>
     }
 
     const { address } = user;
