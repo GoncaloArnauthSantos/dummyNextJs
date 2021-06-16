@@ -1,18 +1,9 @@
-import { createClient } from 'contentful'
 import User from "../components/User";
-
-const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-})
+import {getContentfulEntriesBySlug} from "../services/contenful";
 
 export const getStaticProps = async () => {
-    const { items } = await client.getEntries({
-        content_type: 'homePage',
-        'fields.slug': 'home'
-    })
+    const [homeData] = await getContentfulEntriesBySlug({ contentType: 'homePage', slug: 'home' });
 
-    const [homeData] = items;
     return {
         props: { data: homeData },
     };
@@ -24,9 +15,9 @@ export default function Home({data}) {
 
   return (
       <div>
-          <div className="title">
+          <title>
               {title}
-          </div>
+          </title>
           <div className="userTable">
               { userList.map(({ fields, sys }) => (
                   <div className="userCard" key={sys.id}>
