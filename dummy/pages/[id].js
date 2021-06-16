@@ -26,6 +26,7 @@ export const getStaticProps = async ({params}) => {
 
     return {
         props: { user, selectedUserName },
+        revalidate: 10,
     }
 }
 
