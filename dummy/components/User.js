@@ -23,7 +23,7 @@ export default function User({ data }) {
 
             <div className="card-description">
                 <div className="description-entry">
-                    Name:{firstName} {lastName}
+                    Name: {firstName} {lastName}
                 </div>
                 <div className="description-entry">
                     Email: {email}
