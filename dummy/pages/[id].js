@@ -12,7 +12,7 @@ export const getStaticPaths = async () => {
 
     return {
         paths,
-        fallback: false,
+        fallback: true,
     }
 }
 
@@ -21,7 +21,16 @@ export const getStaticProps = async ({params}) => {
     const user = await getFriendsById(selectedId);
     const [selectedUser] = await getContentfulEntriesBySlug({ contentType: 'author', slug: selectedId });
 
-    const { fields: { firstName, lastName} } = selectedUser;
+    if (!selectedUser) {
+        return {
+            redirect: {
+                destination: '/404',
+                permanent: false,
+            }
+        }
+    }
+
+    const { fields: { firstName = '', lastName = ''} } = selectedUser;
     const selectedUserName = `${firstName} ${lastName}`;
 
     return {
@@ -31,6 +40,11 @@ export const getStaticProps = async ({params}) => {
 }
 
 export default function CartDetail({user, selectedUserName}) {
+
+    if (!user || !selectedUserName) {
+        return <div className={styles.loader}></div>
+    }
+
     const { address } = user;
     const { city, street, zipcode } = address;
 
