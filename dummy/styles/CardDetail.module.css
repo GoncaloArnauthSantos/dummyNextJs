@@ -38,3 +38,10 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.button {
+  border: 1px solid black;
+  width: max-content;
+  padding: 5px;
+  background: aliceblue;
+}
