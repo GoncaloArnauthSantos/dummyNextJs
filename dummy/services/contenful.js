@@ -8,7 +8,8 @@ const client = createClient({
 export const getContentfulEntriesBySlug = async ({ contentType = '', slug = '' }) => {
     const { items } = await client.getEntries({
         content_type: contentType,
-        'fields.slug': slug
+        'fields.slug': slug,
+        locale: 'de'
     })
 
     return items;
