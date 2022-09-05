@@ -1,17 +1,17 @@
 import User from "../components/User";
 import {getContentfulEntriesBySlug} from "../services/contenful";
 
-export const getStaticProps = async () => {
-    const [homeData] = await getContentfulEntriesBySlug({ contentType: 'homePage', slug: 'home' });
+// export const getStaticProps = async () => {
+//     // const [homeData] = await getContentfulEntriesBySlug({ contentType: 'homePage', slug: 'home' });
+//
+//     return {
+//         props: { data: homeData },
+//         revalidate: 10,
+//     };
+// }
 
-    return {
-        props: { data: homeData },
-        revalidate: 10,
-    };
-}
-
-export default function Home({data}) {
-    const { fields } = data;
+export default function Home({data = {}}) {
+    const { fields = {} } = data;
     const { title = '', userList = [] } = fields;
 
   return (
