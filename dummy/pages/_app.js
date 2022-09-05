@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import {ContentLayout} from "../components/ContentLayout";
 import CookieBot from "react-cookiebot"
-import Head from "next/head";
+import TagManager from 'react-gtm-module'
 
 
 const MyCookie = () => {
@@ -10,25 +10,22 @@ console.log("here !!")
     return (<CookieBot domainGroupId={domainGroupId} />)
 }
 
+const GoogleTagManager = () => {
+    const tagManagerArgs = {
+        gtmId: 'GTM-PSX9TP6'
+    }
+
+    TagManager.initialize(tagManagerArgs)
+
+}
+
 function MyApp({ Component, pageProps }) {
   return (
-      <>
-          <Head>
-              {/*<script*/}
-              {/*    id="Cookiebot"*/}
-              {/*    src="https://consent.cookiebot.com/uc.js"*/}
-              {/*    data-cbid="4c7db490-c6f2-480a-93f5-5bd82fcad3ce"*/}
-              {/*    data-blockingmode="auto"*/}
-              {/*    type="text/javascript"*/}
-              {/*    async*/}
-              {/*/>*/}
-              <title>Dummy test</title>
-          </Head>
-          <ContentLayout>
-              <MyCookie/>
-              <Component {...pageProps} />
-            </ContentLayout>
-      </>
+      <ContentLayout>
+          <GoogleTagManager/>
+          <MyCookie/>
+          <Component {...pageProps} />
+    </ContentLayout>
   );
 
 }
