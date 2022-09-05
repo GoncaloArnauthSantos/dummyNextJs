@@ -21,10 +21,10 @@ const GoogleTagManager = ({children}) => {
 function MyApp({ Component, pageProps }) {
   return (
       <ContentLayout>
-          <GoogleTagManager>
+          {/*<GoogleTagManager>*/}
               <MyCookie/>
               <Component {...pageProps} />
-          </GoogleTagManager>
+          {/*</GoogleTagManager>*/}
       </ContentLayout>
   );
 
