@@ -7,7 +7,7 @@ import Head from "next/head";
 const MyCookie = () => {
     const domainGroupId = "4c7db490-c6f2-480a-93f5-5bd82fcad3ce"
 console.log("here !!")
-    return (<CookieBot domainGroupId={domainGroupId} />)
+    return <script id="CookieDeclaration" src="https://consent.cookiebot.com/4c7db490-c6f2-480a-93f5-5bd82fcad3ce/cd.js" type="text/javascript" async></script>
 }
 
 function MyApp({ Component, pageProps }) {
