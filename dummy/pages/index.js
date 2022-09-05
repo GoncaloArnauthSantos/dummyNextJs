@@ -1,30 +1,12 @@
-import User from "../components/User";
-import {getContentfulEntriesBySlug} from "../services/contenful";
-
-// export const getStaticProps = async () => {
-//     // const [homeData] = await getContentfulEntriesBySlug({ contentType: 'homePage', slug: 'home' });
-//
-//     return {
-//         props: { data: homeData },
-//         revalidate: 10,
-//     };
-// }
-
-export default function Home({data = {}}) {
-    const { fields = {} } = data;
-    const { title = '', userList = [] } = fields;
+export default function Home() {
 
   return (
       <div>
           <title>
-              {title}
+              Dummy title
           </title>
           <div className="userTable">
-              { userList.map(({ fields, sys }) => (
-                  <div className="userCard" key={sys.id}>
-                      <User data={fields}/>
-                  </div>
-              ))}
+             Dummy content
           </div>
       </div>
   )
