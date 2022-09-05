@@ -9,20 +9,22 @@ const MyCookie = () => {
     return (<CookieBot domainGroupId={domainGroupId} />)
 }
 
-const GoogleTagManager = () => {
+const GoogleTagManager = ({children}) => {
     const tagManagerArgs = {
         gtmId: 'GTM-PSX9TP6'
     }
 
     // TagManager.initialize(tagManagerArgs)
+    return children
 }
 
 function MyApp({ Component, pageProps }) {
   return (
       <ContentLayout>
-          <GoogleTagManager />
-          <MyCookie/>
-          <Component {...pageProps} />
+          <GoogleTagManager>
+              <MyCookie/>
+              <Component {...pageProps} />
+          </GoogleTagManager>
       </ContentLayout>
   );
 
