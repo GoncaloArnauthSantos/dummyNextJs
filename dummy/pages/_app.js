@@ -12,8 +12,8 @@ const MyCookie = () => {
 function MyApp({ Component, pageProps }) {
   return (
       <ContentLayout>
-          <MyCookie/>
-          <Component {...pageProps} />
+          {/*<MyCookie/>*/}
+          <div> My component here </div>
       </ContentLayout>
   );
 
