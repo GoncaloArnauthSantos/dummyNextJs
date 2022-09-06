@@ -1,4 +1,7 @@
-export default function Home() {
+import CookieBot from "react-cookiebot";
+import TagManager from "react-gtm-module";
+
+const Home = () => {
 
   return (
       <div>
@@ -10,4 +13,22 @@ export default function Home() {
           </div>
       </div>
   )
+}
+
+export default Home
+
+export const MyCookie = () => {
+    const domainGroupId = "4c7db490-c6f2-480a-93f5-5bd82fcad3ce"
+    return (<CookieBot domainGroupId={domainGroupId} />)
+}
+
+export const GoogleTagManager = ({children}) => {
+    const tagManagerArgs = {
+        gtmId: 'GTM-PSX9TP6'
+    }
+
+    if (process.browser) {
+        TagManager?.initialize(tagManagerArgs)
+    }
+    return children
 }
