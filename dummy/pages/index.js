@@ -24,7 +24,7 @@ export const MyCookie = () => {
 
 export const GoogleTagManager = ({children}) => {
     const tagManagerArgs = {
-        gtmId: 'GTM-P29VCWC'
+        gtmId: 'GTM-PSX9TP6'
     }
 
     if (process.browser) {
