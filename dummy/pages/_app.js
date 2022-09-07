@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
       <ContentLayout>
           <GoogleTagManager>
-              <MyCookie/>
+              {/*<MyCookie/>*/}
               <Component {...pageProps} />
           </GoogleTagManager>
       </ContentLayout>
