@@ -1,15 +1,21 @@
 import '../styles/globals.css'
 import {ContentLayout} from "../components/ContentLayout";
-import {GoogleTagManager, MyCookie} from "./index";
+import TagManager from "react-gtm-module";
 
 
 function MyApp({ Component, pageProps }) {
-  return (
+
+    const tagManagerArgs = {
+        gtmId: 'GTM-PSX9TP6'
+    }
+
+    if (process.browser) {
+        TagManager?.initialize(tagManagerArgs)
+    }
+
+    return (
       <ContentLayout>
-          <GoogleTagManager>
-              {/*<MyCookie/>*/}
-              <Component {...pageProps} />
-          </GoogleTagManager>
+          <Component {...pageProps} />
       </ContentLayout>
   );
 
